@@ -1,7 +1,6 @@
 package com.track.calorie;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
 
     Button signIn, signUp;
@@ -40,19 +39,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!emptyValidation()){
                     User user = dbHelper.addUser(new User(email.getText().toString(),pass.getText().toString()));
-                    if(user == null)
+                    if(user != null)
                     {
-                        Toast.makeText(MainActivity.this,"User",Toast.LENGTH_SHORT).show();
-                        pass.setText("");
-                    }
-                    else{
-
                         Bundle mBundle = new Bundle();
                         mBundle.putString("user",user.getEmail());
-                        Intent intent = new Intent(MainActivity.this,UserActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,UserActivity.class);
                         intent.putExtras(mBundle);
                         startActivity(intent);
-                        Toast.makeText(MainActivity.this,"Welcome "+ user.getEmail(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"Welcome "+ user.getEmail(),Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this,"User",Toast.LENGTH_SHORT).show();
+                        pass.setText("");
+
                 }
             }
             }
@@ -65,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
                 //finish();
                 if(!emptyValidation()){
                     dbHelper.addUser(new User(email.getText().toString(),pass.getText().toString()));
-                    Toast.makeText(MainActivity.this,"Added user",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Added user",Toast.LENGTH_SHORT).show();
                     email.setText("");
                     pass.setText("");
                 }
                 else{
-                    Toast.makeText(MainActivity.this,"Empty Fields",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Empty Fields",Toast.LENGTH_SHORT).show();
                 }
             }
         });

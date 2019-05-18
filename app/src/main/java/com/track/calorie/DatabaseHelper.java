@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public DatabaseHelper(MainActivity context) {
+    public DatabaseHelper(LoginActivity context) {
         super(context, DatabaseOptions.DB_NAME, null, DatabaseOptions.DB_VERSION);
     }
 
