@@ -52,16 +52,14 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this,"User",Toast.LENGTH_SHORT).show();
                         pass.setText("");
 
+                    }
                 }
             }
-            }
-            //}
         });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //finish();
                 if(!emptyValidation()){
                     dbHelper.addUser(new User(email.getText().toString(),pass.getText().toString()));
                     Toast.makeText(LoginActivity.this,"Added user",Toast.LENGTH_SHORT).show();
@@ -83,21 +81,3 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
-
-                /*
-                if(email.getText().toString().equals("admin") && pass.getText().toString().equals("admin")) {
-
-                    Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();*/
-
-//      tx1.setVisibility(View.VISIBLE);
-//tx1.setBackgroundColor(Color.RED);
-//counter--;
-//tx1.setText(Integer.toString(counter));
-
-                    /*
-                    if (counter == 0) {
-                        signIn.setEnabled(false);
-                    }
-                    */
